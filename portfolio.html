@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mude Premnath Naik | Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0b0f1a;
+      --surface: #131929;
+      --surface2: #1a2438;
+      --accent: #00e5ff;
+      --text: #e8eaf0;
+      --muted: #7a8ba0;
+      --border: rgba(0,229,255,0.12);
+      --card-glow: rgba(0,229,255,0.06);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; height: 64px;
+      background: rgba(11,15,26,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.1rem;
+      color: var(--accent); letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--text); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.87rem; font-weight: 500;
+      letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 6vw 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -10%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse at center, rgba(0,229,255,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 4rem; align-items: center;
+      width: 100%; max-width: 1100px; margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(0,229,255,0.08);
+      border: 1px solid var(--border);
+      color: var(--accent); font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 2px;
+      margin-bottom: 1.2rem;
+      font-family: 'Syne', sans-serif;
+    }
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name .accent { color: var(--accent); }
+    .hero-role {
+      font-size: 1rem; color: var(--muted);
+      font-weight: 300; margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
+    }
+    .hero-bio {
+      max-width: 520px; color: #9db0c5;
+      font-size: 0.97rem; line-height: 1.8; margin-bottom: 2rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--bg);
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.88rem; padding: 11px 28px; border-radius: 3px;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); color: var(--text);
+      font-family: 'Syne', sans-serif; font-weight: 600;
+      font-size: 0.88rem; padding: 11px 28px; border-radius: 3px;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+    .hero-avatar {
+
+      width: 220px; height: 220px; border-radius: 50%;
+      border: 2px solid var(--accent); background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      box-shadow: 0 0 40px rgba(0,229,255,0.15); flex-shrink: 0;
+    }
+    .social-links { display: flex; gap: 1rem; margin-top: 1.4rem; flex-wrap: wrap; }
+    .social-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.8rem; letter-spacing: 0.06em;
+      text-transform: uppercase; font-family: 'Syne', sans-serif;
+      transition: color 0.2s; display: flex; align-items: center; gap: 4px;
+    }
+    .social-links a:hover { color: var(--accent); }
+
+    /* SECTIONS */
+    section { padding: 90px 6vw; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Syne', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      letter-spacing: -0.02em; margin-bottom: 3rem; color: var(--text);
+    }
+    .section-title span { color: var(--accent); }
+    .divider {
+      width: 40px; height: 3px; background: var(--accent);
+      margin: 0.8rem 0 2.5rem; border-radius: 2px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.6rem;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .skill-card:hover {
+      border-color: var(--accent); transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--card-glow);
+    }
+    .skill-card-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+    .skill-card-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.9rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .tag {
+      background: var(--surface2);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #b0c4d8; font-size: 0.78rem;
+      padding: 3px 10px; border-radius: 2px;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.6rem;
+    }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent); transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--card-glow);
+    }
+    
+    .project-img {
+      
+      height: 160px; display: flex; align-items: center;
+      justify-content: center; font-size: 3.5rem; background: var(--surface2);
+    }
+    .project-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .project-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
+    .project-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1.05rem; margin-bottom: 0.6rem; color: var(--text);
+    }
+    .project-desc { font-size: 0.88rem; color: #8aa0b8; line-height: 1.7; flex: 1; margin-bottom: 1rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .project-tag {
+      background: rgba(0,229,255,0.08);
+      border: 1px solid rgba(0,229,255,0.18);
+      color: var(--accent); font-size: 0.72rem;
+      padding: 2px 9px; border-radius: 2px;
+      font-family: 'Syne', sans-serif; letter-spacing: 0.04em;
+    }
+    .project-links { display: flex; gap: 0.8rem; }
+    .project-link {
+      font-size: 0.8rem; color: var(--muted); text-decoration: none;
+      font-family: 'Syne', sans-serif; letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2.4rem;
+      padding: 1.4rem 1.6rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; transition: border-color 0.25s;
+    }
+    .timeline-item:hover { border-color: var(--accent); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -36px; top: 20px;
+      width: 10px; height: 10px; background: var(--accent);
+      border-radius: 50%; box-shadow: 0 0 8px rgba(0,229,255,0.5);
+    }
+    .timeline-period {
+      font-size: 0.75rem; color: var(--accent);
+      font-family: 'Syne', sans-serif; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.3rem;
+    }
+    .timeline-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 1rem; color: var(--text); margin-bottom: 0.2rem;
+    }
+    .timeline-org { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .timeline-desc { font-size: 0.87rem; color: #8aa0b8; line-height: 1.7; }
+    .timeline-desc ul { padding-left: 1.2rem; }
+    .timeline-desc ul li { margin-bottom: 0.4rem; }
+
+    /* CERTS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    .cert-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1.2rem 1.4rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .cert-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+    .cert-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 0.9rem; color: var(--text); margin-bottom: 0.2rem;
+    }
+    .cert-sub { font-size: 0.8rem; color: var(--muted); }
+
+    /* CONTACT */
+    #contact { background: var(--surface); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.6rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px; background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-label {
+      font-family: 'Syne', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 3px;
+    }
+    .contact-val { font-size: 0.92rem; color: var(--text); }
+    .contact-val a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .contact-val a:hover { color: var(--accent); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label {
+      font-size: 0.78rem; color: var(--muted);
+      font-family: 'Syne', sans-serif; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .form-field input, .form-field textarea {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 4px; padding: 10px 14px; color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s; resize: none;
+    }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--accent); }
+    .form-submit {
+      background: var(--accent); color: var(--bg); border: none;
+      padding: 12px 28px; font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 0.88rem; letter-spacing: 0.05em;
+      border-radius: 3px; cursor: pointer; align-self: flex-start;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .form-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    footer {
+      text-align: center; padding: 2rem 6vw;
+      font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer span { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text-group { animation: fadeUp 0.7s ease both; }
+    .hero-avatar { animation: fadeUp 0.7s 0.2s ease both; }
+
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-btns, .social-links { justify-content: center; }
+      .hero-bio { margin: 0 auto 2rem; }
+      .hero-avatar { width: 150px; height: 150px; font-size: 3.5rem; order: -1; margin: 0 auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">&lt;<span>Premnath</span> /&gt;</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-text-group">
+      <div class="hero-tag">Open to Opportunities</div>
+      <h1 class="hero-name">Mude Premnath Naik<br><span class="accent"></span></h1>
+      <p class="hero-role">CSE Student &nbsp;|&nbsp; Data Analyst</p>
+      <p class="hero-bio">
+        Passionate developer skilled in web development, data analytics, and AI-powered applications.
+        I build end-to-end solutions — from REST APIs and real-time ML pipelines to interactive BI dashboards —
+        with a focus on clean code and measurable impact.
+      </p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">⬇ Download CV</a>
+        <a href="#contact" class="btn-secondary">Contact Me →</a>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/mudepremnathnaik" target="_blank">⌥ GitHub</a>
+        <a href="https://www.linkedin.com/in/mudepremnathnaik/" target="_blank">in LinkedIn</a>
+        <a href="mailto:mudepremnathnaik23@gmail.com">✉ Email</a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <img src="C:\Users\HP\OneDrive\Pictures\ID CARD IMAG.jpg" alt="Mude Premnath Naik" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;"></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">What I Know</div>
+    <h2 class="section-title">My <span>Skills</span></h2>
+    <div class="divider"></div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+  <div class="skill-card-icon">💻</div>
+  <div class="skill-card-title">Languages</div>
+  <div class="skill-tags">
+    <span class="tag"><i class="devicon-c-plain colored"></i> C</span>
+    <span class="tag"><i class="devicon-cplusplus-plain colored"></i> C++</span>
+    <span class="tag"><i class="devicon-java-plain colored"></i> Java</span>
+    <span class="tag"><i class="devicon-javascript-plain colored"></i> JS</span>
+    <span class="tag"><i class="devicon-python-plain colored"></i> Python</span>
+    <span class="tag"><i class="devicon-kotlin-plain colored"></i> Kotlin</span>
+  </div>
+</div>
+
+      <div class="skill-card">
+  <div class="skill-card-icon">⚙️</div>
+  <div class="skill-card-title">Frameworks & Web</div>
+  <div class="skill-tags">
+    <span class="tag"><i class="devicon-html5-plain colored"></i> HTML & CSS</span>
+    <span class="tag"><i class="devicon-nodejs-plain colored"></i> Node.js</span>
+    <span class="tag"><i class="devicon-xml-plain colored"></i> XML</span>
+    <span class="tag"><i class="devicon-google-plain colored"></i> MediaPipe</span>
+    <span class="tag"><i class="devicon-tensorflow-original colored"></i> TensorFlow.js</span>
+  </div>
+</div>
+
+      <div class="skill-card">
+  <div class="skill-card-icon">🛠️</div>
+  <div class="skill-card-title">Tools & Platforms</div>
+  <div class="skill-tags">
+    <span class="tag"><i class="devicon-mysql-original colored"></i> MySQL</span>
+    <span class="tag"><i class="devicon-azuresqldatabase-plain colored"></i> DBMS</span>
+    <span class="tag">📊 Power BI</span> 
+    <span class="tag"><i class="devicon-pandas-plain colored"></i> Pandas</span>
+    <span class="tag"><i class="devicon-numpy-plain colored"></i> NumPy</span>
+    <span class="tag"><i class="devicon-matplotlib-plain colored"></i> Matplotlib</span>
+    <span class="tag"><i class="devicon-python-plain colored"></i> Seaborn</span>
+    <span class="tag"><i class="devicon-leetcode-plain colored"></i> LeetCode</span>
+  </div>
+</div>
+
+      <div class="skill-card">
+  <div class="skill-card-icon">🤝</div>
+  <div class="skill-card-title">Soft Skills</div>
+  <div class="skill-tags">
+    <span class="tag">🧩 Problem-Solving</span>
+    <span class="tag">📢 Leadership</span>
+    <span class="tag">⚖️ Decision-Making</span>
+    <span class="tag">🧠 Critical Thinking</span>
+    <span class="tag">🔄 Adaptability</span>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-label">What I've Built</div>
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="divider"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-img">📊</div>
+        <div class="project-body">
+          <div class="project-date">Apr 2025</div>
+          <div class="project-title">Sales Across India – EDA & Visualization</div>
+          <p class="project-desc">
+            End-to-end data cleaning of a nationwide sales dataset achieving 100% data integrity. Engineered 6 sophisticated visualizations — timeseries trends, correlation heatmaps, and regional boxplots — to surface seasonal revenue spikes and market concentration insights for executive-level performance reviews.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">NumPy</span>
+            <span class="project-tag">Matplotlib</span>
+            <span class="project-tag">Seaborn</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/mudepremnathnaik" class="project-link" target="_blank">⌥ View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img">🏋️</div>
+        <div class="project-body">
+          <div class="project-date">Mar 2024</div>
+          <div class="project-title">AI-Powered Workout Assistant</div>
+          <p class="project-desc">
+            Responsive web app using MediaPipe and TensorFlow.js for real-time biomechanical analysis with 95% accuracy in form correction and automated rep counting. Built a robust REST API and relational DB schema for workout telemetry ensuring 100% data persistence and seamless retrieval of historical performance metrics.
+          </p>
+          <div class="project-tags">
+            <span class="project-tag">MediaPipe</span>
+            <span class="project-tag">TensorFlow.js</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/mudepremnathnaik" class="project-link" target="_blank">⌥ View Code</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRAINING -->
+<section id="training">
+  <div class="section-inner">
+    <div class="section-label">Professional Development</div>
+    <h2 class="section-title">Training & <span>Experience</span></h2>
+    <div class="divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Jun 2025</div>
+        <div class="timeline-title">Data Analytics Essentials</div>
+        <div class="timeline-org">Centre for Professional Enhancement, LPU · Industry Training</div>
+        <div class="timeline-desc">
+          <ul>
+            <li>Engineered a comprehensive Power BI solution for IPL performance analysis using Power Query to standardize heterogeneous team/venue data and SQL for complex pre-processing.</li>
+            <li>Architected a sophisticated 3-page interactive dashboard with 25+ specialized components, including toss impact analysis and win margin distributions, to uncover hidden patterns in match outcomes.</li>
+            <li>Implemented custom JSON themes and row-level security bindings, delivering a professional-grade decision support tool for sports analytics.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">My <span>Education</span></h2>
+    <div class="divider"></div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Aug 2023 – Present</div>
+        <div class="timeline-title">B.Tech – Computer Science & Engineering</div>
+        <div class="timeline-org">Lovely Professional University, Punjab, India &nbsp;·&nbsp; CGPA: 6.97</div>
+        <div class="timeline-desc">
+          Relevant coursework: Data Structures & Algorithms, Operating Systems, DBMS, Computer Networks, Machine Learning.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Apr 2022 – Mar 2023</div>
+        <div class="timeline-title">Intermediate (Class XII)</div>
+        <div class="timeline-org">Narayana Junior College, Tirupati, Andhra Pradesh &nbsp;·&nbsp; Percentage: 94%</div>
+        <div class="timeline-desc">Science stream with Physics, Chemistry, and Mathematics.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-period">Jun 2020 – May 2021</div>
+        <div class="timeline-title">Matriculation (Class X)</div>
+        <div class="timeline-org">Bhashyam Public School, Madanapalle, Andhra Pradesh &nbsp;·&nbsp; Percentage: 100%</div>
+        <div class="timeline-desc">Graduated with a perfect score and distinction in all subjects.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS & ACHIEVEMENTS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">Credentials & Wins</div>
+    <h2 class="section-title">Certifications & <span>Achievements</span></h2>
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">🏅 Certifications</h3>
+    <div class="certs-grid" style="margin-bottom:2.5rem;">
+      <div class="cert-card">
+        <div class="cert-icon">🖥️</div>
+        <div>
+          <div class="cert-title">Introduction to Hardware and Operating Systems</div>
+          <div class="cert-sub">IBM · Jun 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-title">Data Visualization with Python</div>
+          <div class="cert-sub">IBM · Jan 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-title">Build Generative AI Apps with No-Code Tools</div>
+          <div class="cert-sub">Sep 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div>
+          <div class="cert-title">The Bits and Bytes of Computer Networking</div>
+          <div class="cert-sub">Google · Sep 2024</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem;">🏆 Achievements</h3>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-title">LeetCode Badge — Jan 2025</div>
+          <div class="cert-sub">Secured badge by completing LeetCode challenge set</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⭐</div>
+        <div>
+          <div class="cert-title">HackerRank C++ — 4 Star Badge</div>
+          <div class="cert-sub">Achieved 4-star rating in C++ on HackerRank</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🚀</div>
+        <div>
+          <div class="cert-title">Team 7 Hackathon — Level 1 Cleared</div>
+          <div class="cert-sub">Passed the first round of the Team 7 Hackathon event</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Let's Connect</div>
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p style="color:#8aa0b8;font-size:0.95rem;margin-bottom:2rem;max-width:380px;">
+          Feel free to reach out for collaborations, internship opportunities, project discussions, or just a friendly hello!
+        </p>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val"><a href="mailto:mudepremnathnaik23@gmail.com">mudepremnathnaik23@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val"><a href="tel:+917780188836">+91 7780188836</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-val"><a href="https://www.linkedin.com/in/mudepremnathnaik/" target="_blank">linkedin.com/in/mudepremnathnaik</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⌥</div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-val"><a href="https://github.com/mudepremnathnaik" target="_blank">github.com/mudepremnathnaik</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-val">Punjab, India</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Your Name" />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Subject</label>
+          <input type="text" placeholder="Internship Opportunity" />
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Hey Premnath, I'd love to connect..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Thanks! Connect this form to FormSpree for real submissions.')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Designed & Built by <span>Mude Premnath Naik</span> &nbsp;·&nbsp; <span>Build it. Ship it. Get hired. 🚀</span></p>
+</footer>
+
+</body>
+</html>
